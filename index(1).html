@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 6th Monthsary ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8c8e8 0%, #f48fc0 50%, #f062a8 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            padding-top: 50px;
+            text-shadow: 0 0 12px #ff4da6;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* ✉️ ENVELOPE DESIGN */
+        #envelope {
+            position: relative;
+            top: 50px;
+            width: 280px;
+            height: 180px;
+            margin: 0 auto;
+            background-color: #d9538f;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: 0.5s;
+            cursor: pointer;
+            z-index: 50;
+        }
+
+        /* 📝 TEXT SA LOOB NG ENVELOPE BABA */
+        #envelope::after {
+            content: "flowers for you";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            z-index: 51;
+        }
+
+        /* 🌹 ROSE NASA ILALIM NG TEXT (TAMANG LAKI) */
+        #envelope .rose {
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            z-index: 52;
+        }
+
+        #envelope .top-part {
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 100px solid #c8477e;
+        }
+
+        #letter {
+            position: absolute;
+            background: white;
+            width: 240px;
+            height: 170px;
+            margin: 0 auto;
+            left: 20px;
+            top: 15px;
+            transition: 0.5s;
+            padding: 18px;
+            border-radius: 8px;
+            overflow-y: auto;
+            opacity: 0;
+        }
+
+        #letter p {
+            color: #d9538f;
+            font-size: 15px;
+            line-height: 23px;
+            text-align: left;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            position: relative;
+            top: 120px;
+            text-align: center;
+            z-index: 50;
+        }
+
+        button {
+            padding: 12px 35px;
+            margin: 0 10px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: white;
+            color: #d9538f;
+        }
+
+        /* 🎈 BALLOONS ANIMATION */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 45px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: inset -8px -8px 15px rgba(0,0,0,0.1);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-110vh); opacity: 0; }
+        }
+
+        /* 💖 HEARTS ANIMATION */
+        .heart {
+            position: absolute;
+            font-size: 22px;
+            animation: fallDown 6s linear infinite;
+        }
+
+        @keyframes fallDown {
+            0% { transform: translateY(-20px); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
+        }
+
+        /* OPEN / CLOSE EFFECT */
+        .open #letter {
+            top: -90px;
+            height: 240px;
+            opacity: 1;
+        }
+        .open #envelope {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="title">Happy 6th Monthsary My Special Person 🩷🩷</h1>
+
+    <div id="envelope">
+        <div class="top-part"></div>
+        <div class="rose">🌹</div>
+        <div id="letter">
+            <p>
+                <strong>Happy 6th Monthsary Baby Ko ❤️</strong><br><br>
+
+                Salamat sa 6 na buwan ng pagmamahal mo sakin.<br>
+                Dati lagi akong pasaway sayo, sorry po.<br>
+                Sana po forever na tayo baby, sorry kung pasaway po ako sayo ma.<br>
+                Bago na po ako, e-priority ka na po lagi.<br>
+                Ka mag-ingat dyan baby ko po ahhh.<br><br>
+
+                Love na love kita po.<br>
+                Saka huwag po magpaparalipas ng gutom ah?<br><br>
+
+                I love you so much my very special person.<br>
+                Miss na miss na kita po baby ko 😚😚
+            </p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="openBtn">OPEN ✉️</button>
+        <button id="closeBtn">CLOSE ❌</button>
+    </div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        const letter = document.getElementById('letter');
+        const openBtn = document.getElementById('openBtn');
+        const closeBtn = document.getElementById('closeBtn');
+
+        openBtn.addEventListener('click', () => {
+            envelope.classList.add('open');
+            letter.style.opacity = "1";
+        });
+
+        closeBtn.addEventListener('click', () => {
+            envelope.classList.remove('open');
+            letter.style.opacity = "0";
+        });
+
+        // 🎈 BALLOONS
+        const balloonColors = ['#ff3366', '#ff6699', '#ff99cc', '#ffb3d9', '#ffcce6'];
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * 100 + '%';
+            balloon.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+            balloon.style.animation = 'floatUp linear infinite';
+            balloon.style.animationDuration = (Math.random() * 5 + 6) + 's';
+            balloon.style.width = (Math.random() * 25 + 35) + 'px';
+            balloon.style.height = (Math.random() * 30 + 50) + 'px';
+            document.body.appendChild(balloon);
+            setTimeout(() => balloon.remove(), 12000);
+        }
+        setInterval(createBalloon, 550);
+
+        // 💖 HEARTS
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 12 + 14) + 'px';
+            heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
